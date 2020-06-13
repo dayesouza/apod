@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from "react";
+import './Apod.scss';
 const apiKey = process.env.REACT_APP_NASA_KEY;
 
 export default function Apod() {

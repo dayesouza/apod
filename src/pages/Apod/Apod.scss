@@ -1,0 +1,47 @@
+
+@import '../../colors.scss';
+
+.nasa-photo {
+  display: flex;
+  padding: 40px;
+  margin: 0 auto;
+  max-height: 100%;
+  color: $color-primary;
+
+  img {
+    width: 50%;
+    margin-right: 50px;
+    object-fit: contain;
+    max-height: 80vh;
+  }
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .date {
+    color: $color-primary;
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
+  
+  .explanation {
+    color: #bbb;
+    background: rgba(0,0,0,0.8);
+    padding: 10px;
+  }
+}
+
+
+@media (max-width: 1280px) {
+  .nasa-photo {
+    display: block;
+  }
+
+  .nasa-photo img {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+}
