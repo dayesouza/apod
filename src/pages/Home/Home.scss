@@ -1,24 +1,21 @@
 @import '../../colors.scss';
 
 .home {
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: center;
 }
 
 .home-link {
-  font-size: 40px;
+  font-size: 20px;
   background: $color-primary;
   display: inline-block;
-  padding: 40px 80px;
+  padding: 10px 20px;
   color: #fff;
-  border-radius: 50%;
   text-decoration: none;
-  transition: 0.3s ease all;
-  text-transform: uppercase;
+  border-radius: 5px;
 }
 
 .home-link:hover {
-  border-radius: 5px;
   background: #1b6c8a;
 }

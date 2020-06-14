@@ -7,7 +7,8 @@ export default function Home() {
 
   return (
     <div className="home">
-      <Link className="home-link" to="/apod" >Check today's photo</Link>
+      <h1 style={{ textAlign: 'center' }}>NASA's resources</h1>
+      <Link className="home-link" to="/apod" >Astronomy Picture of the Day</Link>
     </div>
   );
 }

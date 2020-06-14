@@ -4,14 +4,29 @@
 body {
   font-family: 'Ralwway', serif;
   color: #fff;
+  display: block;
+  position: relative;
+  background-color: black;
   font-size: 19px;
+  height: 100%;
+  margin: 0;
+}
+
+body::after {
+  content: "";
   background: url("/img/universe.jpg") no-repeat center center fixed;
+  top: 0;
+  height: 100%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 100%;
-  margin: 0;
+  opacity: 0.8;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
 }
 
 .app {
