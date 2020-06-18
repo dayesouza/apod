@@ -2,7 +2,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/e0b48c89-05f3-4136-87f7-20e07e8d999b/deploy-status)](https://app.netlify.com/sites/day-apod/deploys)
 
-This website was build with React and deployed with Netifly
+A website built with React.js to check the Atronomy Picture of the Day from NASA.
 
 [Demo here](https://day-apod.netlify.app/)
 
