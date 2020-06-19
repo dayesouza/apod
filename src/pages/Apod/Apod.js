@@ -6,6 +6,7 @@ import Video from "../../components/Video/Video";
 import Loading from "../../components/Loading/Loading";
 import NasaAPI from "../../services/NasaAPI";
 import DatePickerComponent from "../../components/DatePicker/DatePicker";
+import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 
 export default class Apod extends Component {
 
@@ -25,9 +26,8 @@ export default class Apod extends Component {
 
   getData(date = null) {
     NasaAPI.getAPOD(date)
-      .then(data => this.setState({ photoData: data }))
-      .then(data => this.setState({ date: data.photoData.date }))
-      .catch(error => this.setState(error))
+      .then(data => this.setState({ photoData: data, error: null }))
+      .catch(error => this.setState({ error }))
       .finally(_ => this.toggleLoading());
   }
 
@@ -43,13 +43,18 @@ export default class Apod extends Component {
     });
   };
 
+  tryAgain = () => {
+    this.toggleLoading();
+    this.getData(this.state.date);
+  }
+
   formatDate(date) {
     return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
   }
 
   render() {
     if (this.state.loading) return <Loading />;
-    if (this.state.error) return <p>{this.state.error}</p>
+    if (this.state.error) return <ErrorAlert error={this.state.error} tryAgain={this.tryAgain} />;
     return (
       <div className="nasa-photo">
         <div className="media">

@@ -1,3 +1,5 @@
+@import "../../colors.scss";
+
 .react-calendar__month-view__weekdays {
   color: black;
   font-size: 13px;
@@ -9,4 +11,17 @@
 
 .react-date-picker__wrapper {
   border: unset;
+}
+
+.button-date {
+  border: none;
+  padding: 6px;
+  border-radius: 5px;
+  background: $color-primary;
+  color: white;
+  margin-right: 13px;
+
+  &:hover {
+    background: #235669;
+  }
 }
