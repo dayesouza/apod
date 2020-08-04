@@ -21,6 +21,13 @@
   color: white;
   margin-right: 13px;
 
+  &:disabled {
+    background: grey;
+    &:hover {
+      background: grey;
+    }
+  }
+
   &:hover {
     background: #235669;
   }

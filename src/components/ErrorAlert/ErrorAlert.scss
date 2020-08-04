@@ -1,2 +1,24 @@
-@import '../../colors.scss';
+@import "../../colors.scss";
 
+.error {
+  padding: 20px;
+  text-align: center;
+}
+
+.error > button {
+  font-size: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  border-width: 0;
+  margin-right: 10px;
+}
+
+.btn-back {
+  background-color: $color-black;
+}
+
+.btn-primary {
+  background-color: $color-primary;
+}
