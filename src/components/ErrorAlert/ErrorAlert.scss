@@ -1,4 +1,4 @@
-@import "../../colors.scss";
+@import "../../assets/scss/colors.scss";
 
 .error {
   padding: 20px;
@@ -16,7 +16,7 @@
 }
 
 .btn-back {
-  background-color: $color-black;
+  background-color: #000;
 }
 
 .btn-primary {

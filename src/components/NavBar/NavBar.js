@@ -1,14 +1,48 @@
+import React from "react";
+import { NavLink } from "react-router-dom";
+import "./Navbar.scss";
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import './NavBar.scss';
-
-export default function NavBar() {
+export default function Navbar() {
   return (
-    <div className="navbar">
-      <ul>
-        <Link className="link" to="/">Home</Link>
+    <nav className="navbar">
+      <ul className="navbar__list">
+        <li>
+          <NavLink to="/">
+            <i className="fas fa-rocket navbar__logo" />
+          </NavLink>
+        </li>
       </ul>
-    </div>
-  )
+      <ul className="navbar__list">
+        <li>
+          <NavLink
+            exact
+            activeClassName="navbar__link--active"
+            className="navbar__link"
+            to="/"
+          >
+            HOME
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            activeClassName="navbar__link--active"
+            className="navbar__link"
+            to="/apod"
+          >
+            APOD
+          </NavLink>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            rel="noreferrer noopener"
+            className="navbar__link"
+            href="https://api.nasa.gov/#browseAPI"
+          >
+            <i className="fas fa-external-link-alt"></i>NASA’S RESOURCES
+          </a>
+        </li>
+      </ul>
+    </nav>
+  );
 }

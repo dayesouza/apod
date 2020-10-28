@@ -1,18 +1,28 @@
-import React from 'react';
-import { BrowserRouter, Route } from "react-router-dom";
-import Home from './pages/Home/Home'
-import Apod from './pages/Apod/Apod'
-import './App.scss';
-import NavBar from "./components/NavBar/NavBar";
-import Footer from './components/Footer/Footer';
+import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import Apod from "./pages/Apod/Apod";
+import NotFound from "./pages/NotFound/NotFound";
+import "./App.scss";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <BrowserRouter>
-      <NavBar />
+      <Navbar />
       <div className="app">
-        <Route component={Home} path="/" exact />
-        <Route component={Apod} path="/apod" />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/apod">
+            <Apod />
+          </Route>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
       </div>
       <Footer />
     </BrowserRouter>

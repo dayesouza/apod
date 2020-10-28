@@ -1,6 +1,43 @@
+@import "../../assets/scss/colors.scss";
 
 .navbar {
-  background-color: rgba(22, 22, 22, .8);
   display: flex;
   height: 50px;
+  color: $color-secondary;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar__list {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+}
+
+.navbar__link {
+  margin-right: 3em;
+  text-decoration: none;
+  color: $color-secondary;
+
+  &:visited {
+    text-decoration: none;
+    color: $color-secondary;
+  }
+
+  i {
+    margin-right: 5px;
+  }
+}
+
+.navbar__link--active {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.navbar__logo {
+  font-size: 45px;
+  color: $color-primary;
+  text-shadow: (0px 4px 6px rgba(0, 0, 0, 0.32));
 }

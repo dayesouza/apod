@@ -1,49 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway');
-@import './colors.scss';
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&family=Sansita+Swashed&display=swap");
 
 body {
-  font-family: 'Ralwway', serif;
+  font-family: "Roboto", serif;
   color: #fff;
-  display: block;
-  position: relative;
-  background-color: black;
-  font-size: 19px;
+  background: linear-gradient(
+    252deg,
+    rgba(22, 43, 72, 1) 26%,
+    rgba(59, 77, 172, 1) 100%
+  );
   height: 100%;
   margin: 0;
-}
-
-body::after {
-  content: "";
-  background: url("/img/universe.jpg") no-repeat center center fixed;
-  top: 0;
-  height: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  opacity: 0.8;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
 }
 
 .app {
   min-height: calc(100vh - 100px);
 }
-
-.link {
-  color: #efefef;
-  display: inline-block;
-  padding: 3px 20px;
-  font-size: 16px;
-  text-decoration: none;
-  transition: 0.3s ease all;
-}
-
-.link:hover {
-  color: $color-primary;
-  transform: scale(1.1);
-}
-
