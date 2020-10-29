@@ -30,7 +30,7 @@ export default function DatePickerComponent(props) {
         />
         <button
           onClick={() => addDay()}
-          disabled={props.format(props.startDate) == props.format(new Date())}
+          disabled={props.format(props.startDate) === props.format(new Date())}
           className="button-date"
         >
           Next

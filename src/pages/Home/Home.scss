@@ -1,21 +1,32 @@
 @import "../../assets/scss/colors.scss";
 
 .home {
-  display: grid;
-  align-items: center;
-  justify-content: center;
+  display: flex;
+  flex-direction: row;
+
+  div.home__entry,
+  div.home__image {
+    width: 50%;
+    display: flex;
+  }
 }
 
-.home-link {
-  font-size: 20px;
-  background: $color-primary;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
+.home__image {
+  img {
+    width: 100%;
+  }
+}
+.home__entry {
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.home-link:hover {
-  background: #1b6c8a;
+.home__entry__quote {
+  font-family: "Sansita Swashed";
+  font-size: 4rem;
+
+  p {
+    float: right;
+    font-size: 2rem;
+  }
 }

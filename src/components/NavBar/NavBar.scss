@@ -31,9 +31,18 @@
   }
 }
 
-.navbar__link--active {
-  text-decoration: underline;
+.navbar__link--active,
+.navbar__link:hover {
   font-weight: bold;
+
+  &::before {
+    width: 29px;
+    border-top: solid 2px $color-secondary;
+    content: "";
+    position: absolute;
+    margin-top: 27px;
+    margin-left: 8px;
+  }
 }
 
 .navbar__logo {
