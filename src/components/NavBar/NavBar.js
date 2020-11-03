@@ -12,7 +12,7 @@ export default function Navbar() {
           </NavLink>
         </li>
       </ul>
-      <ul className="navbar__list">
+      <ul className="navbar__list navbar__list__links">
         <li>
           <NavLink
             exact

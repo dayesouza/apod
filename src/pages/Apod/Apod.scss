@@ -1,49 +1,37 @@
 @import "../../assets/scss/colors.scss";
 
-.nasa-photo {
+.apod__title {
+  color: white;
+  text-align: center;
+  font-weight: normal;
+}
+
+.apod__media {
   display: flex;
-  padding: 40px;
-  margin: 0 auto;
-  max-height: 100%;
-  color: $color-primary;
+  justify-content: center;
 
-  flex-direction: row;
+  img {
+    max-width: 100%;
+    object-fit: contain;
+  }
+}
 
-  .choose-date {
-    height: 44px;
-    color: white;
-    font-size: 26px;
+.apod__info {
+  padding: 0px 50px 0px 50px;
 
-    input,
-    button svg {
-      color: $color-primary;
-      stroke: white;
-    }
+  .apod__info__title {
+    font-family: "Sansita Swashed";
   }
 
-  .media {
-    flex: 3;
-    padding: 10px 20px;
-  }
-
-  .info {
-    flex: 3;
-  }
-
-  h1 {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  .explanation {
-    color: #bbb;
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px;
+  .apod__info__date {
+    width: fit-content;
+    background-color: white;
+    border-radius: 50px;
   }
 }
 
 @media (max-width: 1280px) {
-  .nasa-photo {
-    display: block;
+  img {
+    width: 80%;
   }
 }

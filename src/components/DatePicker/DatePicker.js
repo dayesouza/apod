@@ -16,26 +16,24 @@ export default function DatePickerComponent(props) {
   };
 
   return (
-    <>
-      <div>
-        <button onClick={() => removeDay()} className="button-date">
-          Prev
-        </button>
-        <DatePicker
-          calendarIcon={null}
-          clearIcon={null}
-          value={props.startDate}
-          onChange={props.handleChange}
-          maxDate={new Date()}
-        />
-        <button
-          onClick={() => addDay()}
-          disabled={props.format(props.startDate) === props.format(new Date())}
-          className="button-date"
-        >
-          Next
-        </button>
-      </div>
-    </>
+    <div className="divDatePicker">
+      <button onClick={() => removeDay()} className="divDatePicker__button">
+        <i class="fa fa-angle-left" aria-hidden="true"></i>
+      </button>
+      <DatePicker
+        calendarIcon={null}
+        clearIcon={null}
+        value={props.startDate}
+        onChange={props.handleChange}
+        maxDate={new Date()}
+      />
+      <button
+        onClick={() => addDay()}
+        disabled={props.format(props.startDate) === props.format(new Date())}
+        className="divDatePicker__button"
+      >
+        <i class="fa fa-angle-right" aria-hidden="true"></i>
+      </button>
+    </div>
   );
 }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./Apod.scss";
-import Img from "../../components/Img/Img";
 import Video from "../../components/Video/Video";
 import Loading from "../../components/Loading/Loading";
 import NasaAPI from "../../services/NasaAPI";
@@ -12,10 +11,11 @@ export default class Apod extends Component {
     super(props);
     this.state = {
       photoData: null,
-      date: new Date(),
+      date: new Date("2020-08-19"),
       loading: true,
       error: null,
     };
+    // Test video with 2020-08-20 / 19???
   }
 
   componentDidMount() {
@@ -53,27 +53,29 @@ export default class Apod extends Component {
     if (this.state.loading) return <Loading />;
     if (this.state.error) return <ErrorAlert tryAgain={this.tryAgain} />;
     return (
-      <div className="nasa-photo">
-        <div className="media">
+      <div className="apod">
+        <h1 className="apod__title">Astronomical Picture Of the Day</h1>
+        <div className="apod__media">
           {this.state.photoData.media_type === "image" ? (
-            <Img
-              url={this.state.photoData.url}
+            <img
+              src={this.state.photoData.url}
               alt={this.state.photoData.title}
+              className="photo"
             />
           ) : (
             <Video url={this.state.photoData.url} />
           )}
         </div>
-        <div className="info">
-          <div className="choose-date">
+        <div className="apod__info">
+          <h1 className="apod__info__title">{this.state.photoData.title}</h1>
+          <p className="explanation">{this.state.photoData.explanation}</p>
+          <div className="apod__info__date">
             <DatePickerComponent
               startDate={this.state.date}
               handleChange={this.handleChange}
               format={this.formatDate}
             />
           </div>
-          <h1>{this.state.photoData.title}</h1>
-          <p className="explanation">{this.state.photoData.explanation}</p>
         </div>
       </div>
     );

@@ -5,6 +5,10 @@
   font-size: 13px;
 }
 
+.react-date-picker {
+  text-align: center;
+}
+
 .react-calendar__navigation {
   margin-bottom: unset;
 }
@@ -13,13 +17,16 @@
   border: unset;
 }
 
-.button-date {
+.react-date-picker__inputGroup__input {
+  color: $color-primary;
+}
+
+.divDatePicker__button {
   border: none;
-  padding: 6px;
-  border-radius: 5px;
-  background: $color-primary;
-  color: white;
-  margin-right: 13px;
+  padding: 7px 11px 7px 11px;
+  color: $color-primary;
+  background-color: white;
+  border-radius: 50px;
 
   &:disabled {
     background: grey;
@@ -29,6 +36,6 @@
   }
 
   &:hover {
-    background: #235669;
+    color: black;
   }
 }

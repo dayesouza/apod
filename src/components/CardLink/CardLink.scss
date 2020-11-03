@@ -14,9 +14,7 @@
   h3 {
     margin-top: 0;
   }
-}
 
-.card {
   a {
     text-decoration: none;
   }
@@ -26,4 +24,10 @@
   display: flex;
   align-items: center;
   font-size: 59px;
+}
+
+@media (max-width: 700px) {
+  .card {
+    width: 80%;
+  }
 }
