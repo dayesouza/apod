@@ -4,7 +4,7 @@ import Home from "./pages/Home/Home";
 import Apod from "./pages/Apod/Apod";
 import NotFound from "./pages/NotFound/NotFound";
 import "./App.scss";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 
 function App() {
