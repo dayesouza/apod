@@ -1,21 +1,20 @@
 import React, { Component } from "react";
 import "./Apod.scss";
-import Video from "../../components/Video/Video";
 import Loading from "../../components/Loading/Loading";
 import NasaAPI from "../../services/NasaAPI";
 import DatePickerComponent from "../../components/DatePicker/DatePicker";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
+import ReactPlayer from "react-player";
 
 export default class Apod extends Component {
   constructor(props) {
     super(props);
     this.state = {
       photoData: null,
-      date: new Date("2020-08-19"),
+      date: new Date("2020-12-12"),
       loading: true,
       error: null,
     };
-    // Test video with 2020-08-20 / 19???
   }
 
   componentDidMount() {
@@ -50,8 +49,9 @@ export default class Apod extends Component {
   }
 
   render() {
-    if (this.state.loading) return <Loading />;
-    if (this.state.error) return <ErrorAlert tryAgain={this.tryAgain} />;
+    const { loading, error } = this.state;
+    if (loading) return <Loading />;
+    if (error) return <ErrorAlert tryAgain={this.tryAgain} />;
     return (
       <div className="apod">
         <h1 className="apod__title">Astronomical Picture Of the Day</h1>
@@ -63,7 +63,7 @@ export default class Apod extends Component {
               className="photo"
             />
           ) : (
-            <Video url={this.state.photoData.url} />
+            <ReactPlayer url={this.state.photoData.url} />
           )}
         </div>
         <div className="apod__info">

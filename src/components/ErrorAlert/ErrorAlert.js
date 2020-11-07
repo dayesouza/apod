@@ -1,16 +1,22 @@
 import React from "react";
 import "./ErrorAlert.scss";
+import { Link } from "react-router-dom";
 
 export default function ErrorAlert(props) {
   return (
     <div className="error">
-      <h3>Error: Try again later</h3>
-      <button className="btn-primary" onClick={() => props.tryAgain()}>
+      <i
+        className="error__icon fa fa-exclamation-triangle"
+        aria-hidden="true"
+      ></i>
+      <h3>There was an error with your request</h3>
+      <h4> Please try again later</h4>
+      <button className="error__btnBack" onClick={() => props.tryAgain()}>
         Try again
       </button>
-      <button className="btn-back" onClick={() => window.history.back()}>
-        Go Back
-      </button>
+      <Link to="/" className="error__btnHome">
+        Go to Home
+      </Link>
     </div>
   );
 }

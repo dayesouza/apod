@@ -11,7 +11,7 @@ function CardLink({ link, title, description, history }) {
         <span>{description}</span>
       </div>
       <div className="card__icon">
-        <i class="fa fa-angle-right" aria-hidden="true"></i>
+        <i className="fa fa-angle-right" aria-hidden="true"></i>
       </div>
     </div>
   );

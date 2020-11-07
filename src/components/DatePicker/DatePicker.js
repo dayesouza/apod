@@ -18,7 +18,7 @@ export default function DatePickerComponent(props) {
   return (
     <div className="divDatePicker">
       <button onClick={() => removeDay()} className="divDatePicker__button">
-        <i class="fa fa-angle-left" aria-hidden="true"></i>
+        <i className="fa fa-angle-left" aria-hidden="true"></i>
       </button>
       <DatePicker
         calendarIcon={null}
@@ -32,7 +32,7 @@ export default function DatePickerComponent(props) {
         disabled={props.format(props.startDate) === props.format(new Date())}
         className="divDatePicker__button"
       >
-        <i class="fa fa-angle-right" aria-hidden="true"></i>
+        <i className="fa fa-angle-right" aria-hidden="true"></i>
       </button>
     </div>
   );

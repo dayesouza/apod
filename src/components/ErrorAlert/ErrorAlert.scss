@@ -5,7 +5,8 @@
   text-align: center;
 }
 
-.error > button {
+.error > button,
+.error > a {
   font-size: 20px;
   padding: 10px 20px;
   color: #fff;
@@ -15,10 +16,14 @@
   margin-right: 10px;
 }
 
-.btn-back {
+.error__btnHome {
   background-color: #000;
 }
 
-.btn-primary {
+.error__btnBack {
   background-color: $color-primary;
+}
+
+.error__icon {
+  font-size: 10rem;
 }
