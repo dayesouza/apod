@@ -11,7 +11,7 @@ export default class Apod extends Component {
     super(props);
     this.state = {
       photoData: null,
-      date: new Date("2020-12-12"),
+      date: new Date(),
       loading: true,
       error: null,
     };
@@ -34,6 +34,7 @@ export default class Apod extends Component {
 
   handleChange = (date) => {
     this.toggleLoading();
+    this.setState({ error: null });
     this.setState({ date }, () => {
       this.getData(this.formatDate(date));
     });
@@ -51,24 +52,32 @@ export default class Apod extends Component {
   render() {
     const { loading, error } = this.state;
     if (loading) return <Loading />;
-    if (error) return <ErrorAlert tryAgain={this.tryAgain} />;
     return (
       <div className="apod">
         <h1 className="apod__title">Astronomical Picture Of the Day</h1>
-        <div className="apod__media">
-          {this.state.photoData.media_type === "image" ? (
-            <img
-              src={this.state.photoData.url}
-              alt={this.state.photoData.title}
-              className="photo"
-            />
-          ) : (
-            <ReactPlayer url={this.state.photoData.url} />
-          )}
-        </div>
+        {!error && (
+          <div className="apod__media">
+            {this.state.photoData.media_type === "image" ? (
+              <img
+                src={this.state.photoData.url}
+                alt={this.state.photoData.title}
+                className="photo"
+              />
+            ) : (
+              <ReactPlayer url={this.state.photoData.url} />
+            )}
+          </div>
+        )}
+        {error && <ErrorAlert tryAgain={this.tryAgain} />}
         <div className="apod__info">
-          <h1 className="apod__info__title">{this.state.photoData.title}</h1>
-          <p className="explanation">{this.state.photoData.explanation}</p>
+          {!error && (
+            <>
+              <h1 className="apod__info__title">
+                {this.state.photoData.title}
+              </h1>
+              <p className="explanation">{this.state.photoData.explanation}</p>
+            </>
+          )}
           <div className="apod__info__date">
             <DatePickerComponent
               startDate={this.state.date}
