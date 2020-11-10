@@ -10,12 +10,14 @@ const NotFound = () => {
         <Drawing />
       </div>
       <div className="notFound__text">
-        <h1>We are sorry!</h1>
+        <div className="notFound__text__div">
+          <h1>We are sorry!</h1>
 
-        <h4>It looks like this page has been taken.</h4>
-        <Link className="notFound__btnHome" to="/">
-          Go to Home
-        </Link>
+          <h4>It looks like this page has been taken.</h4>
+          <Link className="notFound__btnHome" to="/">
+            Go to Home
+          </Link>
+        </div>
       </div>
     </div>
   );

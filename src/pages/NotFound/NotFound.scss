@@ -1,4 +1,4 @@
-.drawing {
+.notFound__drawing {
   height: inherit;
   width: inherit;
 
@@ -8,8 +8,26 @@
   }
 }
 
+.notFound__text {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.notFound__btnHome {
+  font-size: 20px;
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  border-width: 0;
+  margin-right: 10px;
+  background-color: #000;
+}
+
 @media (max-width: 767.98px) {
-  .drawing {
+  .notFound__drawing {
     height: 100vw;
     width: 100vw;
   }
@@ -17,5 +35,22 @@
   a.btn {
     width: 100%;
     display: block;
+  }
+}
+
+@media (min-width: 767px) {
+  .notFound {
+    display: flex;
+  }
+
+  .notFound__text {
+    width: 90%;
+  }
+
+  .notFound__drawing {
+    svg {
+      height: 80vh;
+      margin-left: 10%;
+    }
   }
 }
