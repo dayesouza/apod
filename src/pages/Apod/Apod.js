@@ -54,19 +54,21 @@ export default class Apod extends Component {
     if (loading) return <Loading />;
     return (
       <div className="apod">
-        <h1 className="apod__title">Astronomical Picture Of the Day</h1>
         {!error && (
-          <div className="apod__media">
-            {this.state.photoData.media_type === "image" ? (
-              <img
-                src={this.state.photoData.url}
-                alt={this.state.photoData.title}
-                className="photo"
-              />
-            ) : (
-              <ReactPlayer url={this.state.photoData.url} />
-            )}
-          </div>
+          <>
+            <h1 className="apod__title">Astronomical Picture Of the Day</h1>
+            <div className="apod__media">
+              {this.state.photoData.media_type === "image" ? (
+                <img
+                  src={this.state.photoData.url}
+                  alt={this.state.photoData.title}
+                  className="photo"
+                />
+              ) : (
+                <ReactPlayer url={this.state.photoData.url} />
+              )}
+            </div>
+          </>
         )}
         {error && <ErrorAlert tryAgain={this.tryAgain} />}
         <div className="apod__info">
@@ -78,7 +80,13 @@ export default class Apod extends Component {
               <p className="explanation">{this.state.photoData.explanation}</p>
             </>
           )}
-          <div className="apod__info__date">
+          <div
+            className={
+              error
+                ? "apod__info__date apod__info__date--error"
+                : "apod__info__date"
+            }
+          >
             <DatePickerComponent
               startDate={this.state.date}
               handleChange={this.handleChange}

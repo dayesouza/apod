@@ -28,6 +28,11 @@
     background-color: white;
     border-radius: 50px;
   }
+
+  .apod__info__date--error {
+    width: auto;
+    text-align: center;
+  }
 }
 
 @media (max-width: 1280px) {

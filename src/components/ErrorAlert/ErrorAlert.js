@@ -17,6 +17,7 @@ export default function ErrorAlert(props) {
       <Link to="/" className="error__btnHome">
         Go to Home
       </Link>
+      <h3 className="error__date">Or you can try another date</h3>
     </div>
   );
 }
