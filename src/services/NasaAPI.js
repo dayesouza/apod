@@ -1,8 +1,4 @@
-
-const apiKey = process.env.REACT_APP_NASA_KEY;
-
 export default class NasaAPI {
-
   static handleErrors(response) {
     if (!response.ok) {
       throw Error(response.statusText);
@@ -11,19 +7,17 @@ export default class NasaAPI {
   }
 
   static getAPOD = async (date) => {
-    let url = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+    let url = `https://day-dapod.azurewebsites.net/api/GetAPOD`;
 
     if (date) {
-      url += `&date=${date}`
+      url += `?date=${date}`;
     }
-    console.log('aaa')
+
     return await fetch(url)
       .then(this.handleErrors)
       .then((response) => response.json())
       .catch((error) => {
         throw error;
       });
-  }
-
-
+  };
 }
