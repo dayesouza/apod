@@ -14,7 +14,7 @@ A website built with React.js to check the Atronomy Picture of the Day from NASA
   </h3>
 </div>
 
-Technologies:
+<h2> Technologies:</h2>
 
 - [React.js](https://reactjs.org/)
 
@@ -28,7 +28,15 @@ Technologies:
 
 - [Azure Key Vault](https://azure.microsoft.com/en-us/services/key-vault/)
 
-## Getting Started
+
+<h2> Overview </h2>
+![image](https://user-images.githubusercontent.com/16024923/99330000-3f5c9100-285e-11eb-9045-7e9c696fea2a.png)
+![image](https://user-images.githubusercontent.com/16024923/99330281-58fdd880-285e-11eb-8bb5-82e8408b1d3e.png)
+![image](https://user-images.githubusercontent.com/16024923/99330556-6ca93f00-285e-11eb-81c7-f2bc8321cbb1.png)
+
+
+
+<h2> Getting Started</h2>
 
 1. Modify the variable url from the file NasaAPI.js with NASA URL and your key, that you can get here: https://api.nasa.gov/
 
