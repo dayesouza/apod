@@ -13,7 +13,7 @@ export default function Home() {
         <blockquote className="home__entry__quote">
           The stars don’t look bigger, but they do look brighter.
           <p>
-            <br />- Sally Ride
+            <br /> - Sally Ride
           </p>
         </blockquote>
         <CardLink

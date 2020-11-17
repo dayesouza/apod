@@ -1,3 +1,5 @@
+@import "../../assets/scss/variables.scss";
+
 .notFound__drawing {
   height: inherit;
   width: inherit;
@@ -26,7 +28,7 @@
   background-color: #000;
 }
 
-@media (max-width: 767.98px) {
+@media (max-width: $breakpoint) {
   .notFound__drawing {
     height: 100vw;
     width: 100vw;
@@ -38,7 +40,7 @@
   }
 }
 
-@media (min-width: 767px) {
+@media (min-width: $breakpoint) {
   .notFound {
     display: flex;
   }

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import "./Apod.scss";
 import Loading from "../../components/Loading/Loading";
 import NasaAPI from "../../services/NasaAPI";
 import DatePickerComponent from "../../components/DatePicker/DatePicker";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import ReactPlayer from "react-player";
+import "./Apod.scss";
 
 export default class Apod extends Component {
   constructor(props) {
