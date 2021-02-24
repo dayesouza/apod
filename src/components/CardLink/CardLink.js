@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./CardLink.scss";
-import { withRouter } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-function CardLink({ link, title, description, history }) {
+function CardLink({ link, title, description }) {
+  const history = useHistory();
+
   return (
-    <div className="card" onClick={() => history.push(link)}>
+    <div className="card t-card-link" onClick={() => history.push(link)}>
       <div>
         <h3>{title}</h3>
         <span>{description}</span>
@@ -21,9 +23,6 @@ CardLink.propTypes = {
   link: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
-  }),
 };
 
-export default withRouter(CardLink);
+export default CardLink;
