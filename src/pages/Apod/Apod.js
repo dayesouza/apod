@@ -4,6 +4,7 @@ import NasaAPI from "../../services/NasaAPI";
 import DatePickerComponent from "../../components/DatePicker/DatePicker";
 import ErrorAlert from "../../components/ErrorAlert/ErrorAlert";
 import ReactPlayer from "react-player";
+import { formatDate } from "../../helpers/date";
 import "./Apod.scss";
 
 export default class Apod extends Component {
@@ -21,7 +22,7 @@ export default class Apod extends Component {
     this.getData();
   }
 
-  getData(date = this.formatDate(this.state.date)) {
+  getData(date = formatDate(this.state.date)) {
     NasaAPI.getAPOD(date)
       .then((data) => this.setState({ photoData: data, error: null }))
       .catch((error) => this.setState({ error }))
@@ -36,7 +37,7 @@ export default class Apod extends Component {
     this.toggleLoading();
     this.setState({ error: null });
     this.setState({ date }, () => {
-      this.getData(this.formatDate(date));
+      this.getData(formatDate(date));
     });
   };
 
@@ -44,10 +45,6 @@ export default class Apod extends Component {
     this.toggleLoading();
     this.getData(this.state.date);
   };
-
-  formatDate(date) {
-    return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-  }
 
   render() {
     const { loading, error } = this.state;
@@ -90,7 +87,6 @@ export default class Apod extends Component {
             <DatePickerComponent
               startDate={this.state.date}
               handleChange={this.handleChange}
-              format={this.formatDate}
             />
           </div>
         </div>
