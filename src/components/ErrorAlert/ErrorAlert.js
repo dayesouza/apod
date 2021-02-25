@@ -11,7 +11,6 @@ function ErrorAlert({ tryAgain }) {
         aria-hidden="true"
       ></i>
       <h3>There was an error with your request</h3>
-      <h4> Please try again later</h4>
       <button
         className="error__btnBack t-try-again-btn"
         onClick={() => tryAgain()}
@@ -21,7 +20,7 @@ function ErrorAlert({ tryAgain }) {
       <Link to="/" className="error__btnHome t-go-home">
         Go to Home
       </Link>
-      <h3 className="error__date">Or you can try another date</h3>
+      <h3 className="error__date">Try another date</h3>
     </div>
   );
 }
