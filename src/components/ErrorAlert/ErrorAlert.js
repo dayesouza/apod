@@ -1,23 +1,33 @@
 import React from "react";
 import "./ErrorAlert.scss";
+import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
-export default function ErrorAlert(props) {
+function ErrorAlert({ tryAgain }) {
   return (
-    <div className="error">
+    <div className="error t-error-alert">
       <i
         className="error__icon fa fa-exclamation-triangle"
         aria-hidden="true"
       ></i>
       <h3>There was an error with your request</h3>
       <h4> Please try again later</h4>
-      <button className="error__btnBack" onClick={() => props.tryAgain()}>
+      <button
+        className="error__btnBack t-try-again-btn"
+        onClick={() => tryAgain()}
+      >
         Try again
       </button>
-      <Link to="/" className="error__btnHome">
+      <Link to="/" className="error__btnHome t-go-home">
         Go to Home
       </Link>
       <h3 className="error__date">Or you can try another date</h3>
     </div>
   );
 }
+
+ErrorAlert.propTypes = {
+  tryAgain: PropTypes.func.isRequired,
+};
+
+export default ErrorAlert;

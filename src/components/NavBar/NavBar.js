@@ -4,7 +4,7 @@ import "./NavBar.scss";
 
 export default function Navbar() {
   return (
-    <nav className="navbar">
+    <nav className="navbar t-navbar">
       <ul className="navbar__list">
         <li>
           <NavLink to="/">
