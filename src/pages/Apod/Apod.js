@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import Loading from "../../components/Loading/Loading";
 import NasaAPI from "../../services/NasaAPI";
 import DatePickerComponent from "../../components/DatePicker/DatePicker";
@@ -7,47 +7,44 @@ import ReactPlayer from "react-player";
 import { formatDate } from "../../helpers/date";
 import "./Apod.scss";
 
-export default class Apod extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      photoData: null,
-      date: new Date(),
-      loading: true,
-      error: null,
-    };
+function Apod() {
+
+  const [photoData, setPhotoData] = useState(null);
+  const [date, setDate] = useState(new Date());
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const toggleLoading = () => {
+    console.log("ÜE Loading", loading)
+    setLoading(!loading);
+  };
+  
+  const getData = (newDate) => {
+    NasaAPI.getAPOD(newDate)
+      .then((data) => {
+        setPhotoData(data);
+        setError(null);
+      })
+      .catch((error) => setError(error))
+      .finally((_) => toggleLoading());
   }
 
-  componentDidMount() {
-    this.getData();
-  }
+  useEffect(() => {
+    getData();
+  },[])
 
-  getData(date = formatDate(this.state.date)) {
-    NasaAPI.getAPOD(date)
-      .then((data) => this.setState({ photoData: data, error: null }))
-      .catch((error) => this.setState({ error }))
-      .finally((_) => this.toggleLoading());
-  }
-
-  toggleLoading = () => {
-    this.setState({ loading: !this.state.loading });
+  const handleChange = (changedDate) => {
+    toggleLoading();
+    setError(null);
+    console.log(changedDate)
+    setDate(getData(formatDate(changedDate)));
   };
 
-  handleChange = (date) => {
-    this.toggleLoading();
-    this.setState({ error: null });
-    this.setState({ date }, () => {
-      this.getData(formatDate(date));
-    });
+  const tryAgain = () => {
+    toggleLoading();
+    getData(date);
   };
 
-  tryAgain = () => {
-    this.toggleLoading();
-    this.getData(this.state.date);
-  };
-
-  render() {
-    const { loading, error } = this.state;
     if (loading) return <Loading />;
     return (
       <div className="apod">
@@ -55,26 +52,26 @@ export default class Apod extends Component {
           <>
             <h1 className="apod__title">Astronomical Picture Of the Day</h1>
             <div className="apod__media">
-              {this.state.photoData.media_type === "image" ? (
+              {photoData.media_type === "image" ? (
                 <img
-                  src={this.state.photoData.url}
-                  alt={this.state.photoData.title}
+                  src={photoData.url}
+                  alt={photoData.title}
                   className="photo"
                 />
               ) : (
-                <ReactPlayer url={this.state.photoData.url} />
+                <ReactPlayer url={photoData.url} />
               )}
             </div>
           </>
         )}
-        {error && <ErrorAlert tryAgain={this.tryAgain} />}
+        {error && <ErrorAlert tryAgain={tryAgain} />}
         <div className="apod__info">
           {!error && (
             <>
               <h1 className="apod__info__title">
-                {this.state.photoData.title}
+                {photoData.title}
               </h1>
-              <p className="explanation">{this.state.photoData.explanation}</p>
+              <p className="explanation">{photoData.explanation}</p>
             </>
           )}
           <div
@@ -85,12 +82,13 @@ export default class Apod extends Component {
             }
           >
             <DatePickerComponent
-              startDate={this.state.date}
-              handleChange={this.handleChange}
+              startDate={date}
+              handleChange={handleChange}
             />
           </div>
         </div>
       </div>
     );
-  }
 }
+
+export default Apod;

@@ -1,4 +1,4 @@
-import checkPropTypes from "check-prop-types";
+import { checkPropTypes } from "prop-types";
 
 export const checkProps = (component, conformingProps) => {
   const propError = checkPropTypes(
